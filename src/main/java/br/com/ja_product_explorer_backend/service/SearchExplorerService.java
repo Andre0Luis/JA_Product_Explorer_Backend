@@ -6,4 +6,8 @@ public interface SearchExplorerService {
 
     Product getProductByCodeBar(String code);
 
+    Iterable<Product> getAllProducts();
+
+
+
 }

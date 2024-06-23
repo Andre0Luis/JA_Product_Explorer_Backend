@@ -27,6 +27,9 @@ public class SearchExplorerResource {
         return ResponseEntity.ok().body(explorerService.getProductByCodeBar(code));
     }
 
-
+    @GetMapping("all")
+    public ResponseEntity<Iterable<Product>> findAllProducts(){
+        return ResponseEntity.ok().body(explorerService.getAllProducts());
+    }
 
 }
