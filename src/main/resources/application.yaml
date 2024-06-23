@@ -2,17 +2,17 @@ spring:
   application:
     name: JA_Product_Explorer_Backend
   datasource:
-    url: ${DATABASE_URL:jdbc:sqlserver://product-explorer.database.windows.net:1433;database=product_explorer;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;}
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL:}
+    driver-class-name: ${DATABASE_DRIVER_CLASS_NAME:org.postgresql.Driver}
+    username: ${DATABASE_USERNAME:}
+    password: ${DATABASE_PASSWORD:}
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.SQLServerDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8080
   servlet:
