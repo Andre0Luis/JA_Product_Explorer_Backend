@@ -22,5 +22,9 @@ public class SearchExplorerServiceImpl implements SearchExplorerService {
         return productRepository.findByIdCodigoDeBarras(code);
     }
 
+    @Override
+    public Iterable<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
 
 }
