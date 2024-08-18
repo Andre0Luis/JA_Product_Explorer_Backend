@@ -14,3 +14,20 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "product_explorer"
           heroku_email: ${{vars.HEROKU_EMAIL}}
+          branch: main
+          userdocker: true
+          docker_build_args: |
+            COSMOSDB_URI
+            COSMOSDB_KEY
+            DATABASE_URL
+            DATABASE_DRIVER_CLASS_NAME
+            DATABASE_USERNAME
+            DATABASE_PASSWORD
+        env:
+          COSMOSDB_URI: ${{vars.COSMOSDB_URI}}
+          COSMOSDB_KEY: ${{secrets.COSMOSDB_KEY}}
+          DATABASE_URL: ${{vars.DATABASE_URL}}
+          DATABASE_DRIVER_CLASS_NAME: ${{vars.DATABASE_DRIVER_CLASS_NAME}}
+          DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+          DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+
