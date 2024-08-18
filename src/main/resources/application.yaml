@@ -1,6 +1,9 @@
 spring:
   application:
     name: JA_Product_Explorer_Backend
+    cosmos:
+      url: ${COSMOSDB_URI:}
+      key: ${COSMOSDB_KEY:}
   datasource:
     url: ${DATABASE_URL:}
     driver-class-name: ${DATABASE_DRIVER_CLASS_NAME:org.postgresql.Driver}

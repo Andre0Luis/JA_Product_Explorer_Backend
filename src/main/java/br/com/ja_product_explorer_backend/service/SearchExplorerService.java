@@ -8,6 +8,4 @@ public interface SearchExplorerService {
 
     Iterable<Product> getAllProducts();
 
-
-
 }
