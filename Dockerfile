@@ -6,8 +6,12 @@ COPY src ./src
 RUN mvn clean package
 
 # Etapa de run
-FROM ubuntu/jre:17-22.04_edge
+FROM ubuntu:22.04
 WORKDIR /app
+
+# Instalar Java
+RUN apt-get update && apt-get install -y openjdk-17-jre
+
 COPY --from=build /workspace/target/ja_product_explorer_backend-0.0.1-SNAPSHOT.jar /app/app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app/app.jar"]
