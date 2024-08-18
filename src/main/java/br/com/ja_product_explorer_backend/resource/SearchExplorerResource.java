@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("product/")
+@RequestMapping("/product")
 public class SearchExplorerResource {
 
     private final SearchExplorerService explorerService;
@@ -27,7 +27,7 @@ public class SearchExplorerResource {
         return ResponseEntity.ok().body(explorerService.getProductByCodeBar(code));
     }
 
-    @GetMapping("all")
+    @GetMapping()
     public ResponseEntity<Iterable<Product>> findAllProducts(){
         return ResponseEntity.ok().body(explorerService.getAllProducts());
     }

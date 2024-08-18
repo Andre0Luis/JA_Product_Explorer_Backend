@@ -1,6 +1,9 @@
 spring:
   application:
     name: JA_Product_Explorer_Backend
+    cosmos:
+      url: ${COSMOSDB_URI:}
+      key: ${COSMOSDB_KEY:}
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
