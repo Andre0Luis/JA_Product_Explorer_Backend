@@ -9,13 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: akhileshns/heroku-deploy@v3.13.15
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "product_explorer"
+          heroku_app_name: "ja-product-explorer-backend"
           heroku_email: ${{vars.HEROKU_EMAIL}}
           branch: main
           userdocker: true
+          justlogin: true
           docker_build_args: |
             COSMOSDB_URI
             COSMOSDB_KEY
@@ -30,4 +32,5 @@ jobs:
           DATABASE_DRIVER_CLASS_NAME: ${{vars.DATABASE_DRIVER_CLASS_NAME}}
           DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
           DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+      - run: heroku auth:whoami
 
