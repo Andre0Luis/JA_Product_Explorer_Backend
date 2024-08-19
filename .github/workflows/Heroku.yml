@@ -19,12 +19,7 @@ jobs:
           email: ${{ vars.HEROKU_EMAIL }}
           dockerfile_directory: ./
           dockerfile_name: Dockerfile
-          docker_options: "-e COSMOSDB_URI=${{vars.COSMOSDB_URI}} \
-           -e COSMOSDB_KEY=${{secrets.COSMOSDB_KEY}} \
-           -e DATABASE_URL=${{vars.DATABASE_URL}} \
-           -e DATABASE_DRIVER_CLASS_NAME=${{vars.DATABASE_DRIVER_CLASS_NAME}} \
-           -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} \
-           -e DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}"
+
           process_type: web
 
 #      - uses: akhileshns/heroku-deploy@v3.13.15
