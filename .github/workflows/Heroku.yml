@@ -19,12 +19,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Teste Variavel
-        run: echo "Checked out code - $HEROKU_EMAIL" |
-                echo "Checked out code - ${{vars.HEROKU_EMAIL}}" |
-                echo "Checked out code - ${{secrets.DATABASE_USERNAME}}" |
-
+        run: echo "Checked out code - $HEROKU_EMAIL"
         env:
           HEROKU_EMAIL: ${{vars.HEROKU_EMAIL}}
+
+      - name: Teste Variavel 2
+        run: echo "Checked out code - ${{vars.HEROKU_EMAIL}}"
+
+      - name: Teste Secret 2
+        run: echo "Checked out code - ${{secrets.DATABASE_USERNAME}}"
+
+
 
       - name: Build and Push Heroku
         uses: gonuit/heroku-docker-deploy@v1.3.3
