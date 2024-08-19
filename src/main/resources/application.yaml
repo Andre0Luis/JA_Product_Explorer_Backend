@@ -5,7 +5,7 @@ spring:
       url: ${COSMOSDB_URI:}
       key: ${COSMOSDB_KEY:}
   datasource:
-    url: ${DATABASE_URL:}
+    url: ${DATABASE_URL_H:}
     driver-class-name: ${DATABASE_DRIVER_CLASS_NAME:org.postgresql.Driver}
     username: ${DATABASE_USERNAME:}
     password: ${DATABASE_PASSWORD:}
