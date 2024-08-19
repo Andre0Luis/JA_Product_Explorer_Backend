@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Teste Variavel
-        run: echo "Checked out code: $HEROKU_EMAIL"
+        run: echo "Checked out code - $HEROKU_EMAIL"
         env:
           HEROKU_EMAIL: ${{vars.HEROKU_EMAIL}}
 
