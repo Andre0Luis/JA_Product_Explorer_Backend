@@ -5,37 +5,17 @@ on:
     branches:
       - main
 
-env:
-    HEROKU_EMAIL: ${{vars.HEROKU_EMAIL}}
-    COSMOSDB_URI: ${{vars.COSMOSDB_URI}}
-    DATABASE_URL: ${{vars.DATABASE_URL}}
-    DATABASE_DRIVER_CLASS_NAME: ${{vars.DATABASE_DRIVER_CLASS_NAME}}
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Teste Variavel
-        run: echo "Checked out code - $HEROKU_EMAIL"
-        env:
-          HEROKU_EMAIL: ${{vars.HEROKU_EMAIL}}
-
-      - name: Teste Variavel 2
-        run: echo "Checked out code - ${{vars.HEROKU_EMAIL}}"
-
-      - name: Teste Secret 2
-        run: echo "Checked out code - ${{secrets.DATABASE_USERNAME}}"
-
-
-
       - name: Build and Push Heroku
         uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "ja-product-explorer-backend"
+          heroku_app_name: ${{HEROKU_APP_NAME}}
           email: ${{ vars.HEROKU_EMAIL }}
           dockerfile_directory: ./
           dockerfile_name: Dockerfile
