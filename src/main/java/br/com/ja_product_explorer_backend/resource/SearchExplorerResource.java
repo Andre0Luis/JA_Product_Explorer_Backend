@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class SearchExplorerResource {
 
     private final SearchExplorerService explorerService;
