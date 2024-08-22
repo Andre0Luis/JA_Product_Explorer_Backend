@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import reactor.core.publisher.Flux;
 
 @Controller
-@RequestMapping("/cosmos")
+@RequestMapping("/api/cosmos")
 public class CosmosResource {
 
     private final CosmosService cosmosService;
