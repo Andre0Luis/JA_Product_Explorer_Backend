@@ -21,6 +21,7 @@ public class Product {
     private Long id;
     private String nome;
     private String preco;
+    private Double estoque = 1.0;
     private String idCodigoDeBarras;
     private String codigoDeBarras;
     private LocalDateTime dataAtualizacao;
