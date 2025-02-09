@@ -1,10 +1,14 @@
 package br.com.ja_product_explorer_backend.service.impl;
 
 import br.com.ja_product_explorer_backend.model.Produtos;
+import br.com.ja_product_explorer_backend.model.dto.ProductResponseDTO;
 import br.com.ja_product_explorer_backend.repository.ProductRepository;
 import br.com.ja_product_explorer_backend.service.SearchExplorerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -18,7 +22,6 @@ public class SearchExplorerServiceImpl implements SearchExplorerService {
         this.productRepository = productRepository;
     }
 
-
     @Override
     public Produtos getProductByCodeBar(String code) {
         try {
@@ -28,15 +31,16 @@ public class SearchExplorerServiceImpl implements SearchExplorerService {
                 product = productRepository.findByIdCodigoDeBarras(code);
             }
             return product;
-             } catch (Exception e) {
-                log.error("Error while searching for product with code: " + code, e);
-                return new Produtos();
+        } catch (Exception e) {
+            log.error("Error while searching for product with code: " + code, e);
+            return new Produtos();
         }
     }
 
     @Override
-    public Iterable<Produtos> getAllProducts() {
-        return productRepository.findAll();
+    public Page<ProductResponseDTO> getAllProducts(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Produtos> productsPage = productRepository.findAll(pageable);
+        return productsPage.map(ProductResponseDTO::of);
     }
-
 }
