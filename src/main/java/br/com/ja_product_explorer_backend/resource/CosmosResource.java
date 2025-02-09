@@ -24,8 +24,6 @@ public class CosmosResource {
     @GetMapping("/products/{code}")
     public ResponseEntity<Flux<CosmosResponseDTO>> getProductByCosmos(@PathVariable String code){
 
-        System.out.printf("@@@@");
-        System.out.printf(code);
         return ResponseEntity.ok().body(cosmosService.getProducts(code));
     }
 }
