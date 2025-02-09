@@ -1,6 +1,6 @@
 package br.com.ja_product_explorer_backend.resource;
 
-import br.com.ja_product_explorer_backend.model.Product;
+import br.com.ja_product_explorer_backend.model.Produtos;
 import br.com.ja_product_explorer_backend.service.SearchExplorerService;
 import br.com.ja_product_explorer_backend.service.impl.SearchExplorerServiceImpl;
 import br.com.ja_product_explorer_backend.util.File;
@@ -25,7 +25,7 @@ public class SearchExplorerResource {
     }
 
     @GetMapping("{code}")
-    public ResponseEntity<Product> findProduct(@PathVariable String code){
+    public ResponseEntity<Produtos> findProduct(@PathVariable String code){
 
 //        System.out.printf("!!!!!!!!!!!!");
 //        file.convertAndSaveSql();
@@ -34,7 +34,7 @@ public class SearchExplorerResource {
     }
 
     @GetMapping()
-    public ResponseEntity<Iterable<Product>> findAllProducts(){
+    public ResponseEntity<Iterable<Produtos>> findAllProducts(){
         return ResponseEntity.ok().body(explorerService.getAllProducts());
     }
 

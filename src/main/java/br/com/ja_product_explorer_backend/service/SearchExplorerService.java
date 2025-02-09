@@ -1,11 +1,11 @@
 package br.com.ja_product_explorer_backend.service;
 
-import br.com.ja_product_explorer_backend.model.Product;
+import br.com.ja_product_explorer_backend.model.Produtos;
 
 public interface SearchExplorerService {
 
-    Product getProductByCodeBar(String code);
+    Produtos getProductByCodeBar(String code);
 
-    Iterable<Product> getAllProducts();
+    Iterable<Produtos> getAllProducts();
 
 }
