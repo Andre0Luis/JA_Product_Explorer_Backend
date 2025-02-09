@@ -21,28 +21,23 @@ import java.util.List;
 public class SearchExplorerResource {
 
     private final SearchExplorerService explorerService;
-    private final File file;
 
     @Autowired
-    public SearchExplorerResource(SearchExplorerServiceImpl explorerService, File file) {
+    public SearchExplorerResource(SearchExplorerServiceImpl explorerService) {
         this.explorerService = explorerService;
-        this.file = file;
     }
 
     @GetMapping("{code}")
     public ResponseEntity<Produtos> findProduct(@PathVariable String code){
 
-//        System.out.printf("!!!!!!!!!!!!");
-//        file.convertAndSaveSql();
-//        System.out.printf("!!!!!!!!!!!!");
         return ResponseEntity.ok().body(explorerService.getProductByCodeBar(code));
     }
 
- @GetMapping()
-public ResponseEntity<Page<ProductResponseDTO>> findAllProducts(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "20") int size) {
-    return ResponseEntity.ok().body(explorerService.getAllProducts(page, size));
-}
+    @GetMapping()
+    public ResponseEntity<Page<ProductResponseDTO>> findAllProducts(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size) {
+        return ResponseEntity.ok().body(explorerService.getAllProducts(page, size));
+    }
 
 }

@@ -43,4 +43,5 @@ public class SearchExplorerServiceImpl implements SearchExplorerService {
         Page<Produtos> productsPage = productRepository.findAll(pageable);
         return productsPage.map(ProductResponseDTO::of);
     }
+
 }
