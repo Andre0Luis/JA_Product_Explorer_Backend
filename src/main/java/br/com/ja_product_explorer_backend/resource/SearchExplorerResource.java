@@ -5,6 +5,7 @@ import br.com.ja_product_explorer_backend.model.dto.ProductResponseDTO;
 import br.com.ja_product_explorer_backend.service.SearchExplorerService;
 import br.com.ja_product_explorer_backend.service.impl.SearchExplorerServiceImpl;
 import br.com.ja_product_explorer_backend.util.File;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/products")
+@Tag(name = "Search Explorer", description = "Search Explorer API")
 public class SearchExplorerResource {
 
     private final SearchExplorerService explorerService;
