@@ -28,7 +28,7 @@ public class Produtos {
     private Double estoque = 1.0;
     private String idCodigoDeBarras;
     private String codigoDeBarras;
-    private LocalDateTime dataAtualizacao;
+    private String dataAtualizacao;
 
     public ProductResponseDTO of(Produtos produtos) {
         return ProductResponseDTO.builder()
