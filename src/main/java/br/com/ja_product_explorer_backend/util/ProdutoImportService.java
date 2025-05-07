@@ -30,7 +30,7 @@ public class ProdutoImportService {
 //        importarCsvDoGoogleDrive();
 //    }
 
-    @Scheduled(cron = "0 0 3 * * *") // Executa todo dia às 03:00
+    //@Scheduled(cron = "0 0 3 * * *") // Executa todo dia às 03:00
     public void importarCsvDoGoogleDrive() throws IOException {
         String url = "https://drive.google.com/uc?export=download&id=14AfPEfB_gPDtzxU01uZXNXiVIME2Qp-K";
         InputStream inputStream = new URL(url).openStream();
