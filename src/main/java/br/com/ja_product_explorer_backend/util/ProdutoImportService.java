@@ -40,9 +40,8 @@ public class ProdutoImportService {
 
         String line;
         boolean isFirstLine = true;
-        int count = 0;
 
-        while ((line = reader.readLine()) != null && count < 10) {
+        while ((line = reader.readLine()) != null) {
             if (isFirstLine) {
                 isFirstLine = false;
                 continue; // pula o cabeçalho
@@ -58,7 +57,6 @@ public class ProdutoImportService {
                 p.setIdCodigoDeBarras(parts[56]);
                 p.setDataAtualizacao(parts[64]); // Data_Atualização_Preço
                 produtos.add(p);
-                count++;
                 System.out.println("Produto adicionado: " + p.getNome() + "linha: " + line);
             } catch (Exception e) {
                 System.out.println("Erro ao processar linha: " + line + " - " + e.getMessage());
