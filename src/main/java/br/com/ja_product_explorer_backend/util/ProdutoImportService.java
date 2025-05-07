@@ -25,10 +25,10 @@ public class ProdutoImportService {
 
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    @PostConstruct
-    public void callImportCsvDoGoogleDrive() throws IOException {
-        importarCsvDoGoogleDrive();
-    }
+//    @PostConstruct
+//    public void callImportCsvDoGoogleDrive() throws IOException {
+//        importarCsvDoGoogleDrive();
+//    }
 
     @Scheduled(cron = "0 0 3 * * *") // Executa todo dia às 03:00
     public void importarCsvDoGoogleDrive() throws IOException {
@@ -57,7 +57,6 @@ public class ProdutoImportService {
                 p.setIdCodigoDeBarras(parts[56]);
                 p.setDataAtualizacao(parts[64]); // Data_Atualização_Preço
                 produtos.add(p);
-                System.out.println("Produto adicionado: " + p.getNome() + "linha: " + line);
             } catch (Exception e) {
                 System.out.println("Erro ao processar linha: " + line + " - " + e.getMessage());
             }
