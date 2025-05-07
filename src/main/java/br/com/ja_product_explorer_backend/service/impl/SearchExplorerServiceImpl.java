@@ -30,7 +30,11 @@ public class SearchExplorerServiceImpl implements SearchExplorerService {
             if (product == null) {
                 product = productRepository.findByIdCodigoDeBarras(code);
             }
-            return product;
+            if (product == null || product.isEmpty()) {
+                log.warn("Product not found with code: " + code);
+                return new Produtos();
+            }
+            return product.get(0);
         } catch (Exception e) {
             log.error("Error while searching for product with code: " + code, e);
             return new Produtos();
